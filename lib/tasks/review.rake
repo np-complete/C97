@@ -40,7 +40,7 @@ def build_all(mode)
   sh "review-compile --target=#{mode} --footnotetext --stylesheet=style.css"
 end
 
-task default: :html_all
+task default: :pdf
 
 desc 'build html (Usage: rake build re=target.re)'
 task :html do
