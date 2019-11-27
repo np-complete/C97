@@ -2,6 +2,7 @@ PREDEF:
   - README.re
 CHAPS:
   - setup.re
+  - library.re
 APPENDIX:
 
 POSTDEF:
