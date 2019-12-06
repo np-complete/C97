@@ -3,6 +3,7 @@ PREDEF:
 CHAPS:
   - setup.re
   - library.re
+  - module.re
 APPENDIX:
 
 POSTDEF:
