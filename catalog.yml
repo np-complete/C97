@@ -6,6 +6,7 @@ CHAPS:
   - module.re
   - syntax.re
   - debug.re
+  - matome.re
 APPENDIX:
 
 POSTDEF:
