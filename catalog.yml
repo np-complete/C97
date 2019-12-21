@@ -5,6 +5,7 @@ CHAPS:
   - library.re
   - module.re
   - syntax.re
+  - debug.re
 APPENDIX:
 
 POSTDEF:
