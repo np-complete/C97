@@ -2,6 +2,11 @@ PREDEF:
   - README.re
 CHAPS:
   - setup.re
+  - setup-node.re
+  - setup-php.re
+  - setup-python.re
+  - setup-go.re
+  - setup-matome.re
   - library.re
   - module.re
   - syntax.re
