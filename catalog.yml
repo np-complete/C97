@@ -8,6 +8,6 @@ CHAPS:
   - debug.re
   - matome.re
 APPENDIX:
-
 POSTDEF:
   - postdef.re
+  - reference.re
