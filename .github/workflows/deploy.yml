@@ -1,0 +1,8 @@
+name: depoly
+on:
+  push:
+    only:
+      - master
+jobs:
+  build:
+    steps:

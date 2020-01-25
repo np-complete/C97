@@ -1,0 +1,23 @@
+name: build
+on:
+  - push
+  - pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: masarakki/docker-alias@v1
+        with:
+          image: vvakame/review:3.2
+          commands: 'review-pdfmaker'
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby_version: 2.7
+      - run: bundle install -j4 --path vendor/bundle
+      - run: bundle exec rake review_files
+      - run: review-pdfmaker config.yml
+      - uses: actions/upload-artifact@v1
+        with:
+          name: book
+          path: book.pdf
