@@ -97,6 +97,8 @@ rule '.re' => '.md' do |t|
   sh "md2review --render-link-in-footnote #{t.source} > #{t.name}"
 end
 
+task review_files: RES
+
 file BOOK_PDF => SRC + SRC_PDF do
   FileUtils.rm_rf [BOOK_PDF, BOOK, BOOK + '-pdf']
   sh "review-pdfmaker #{CONFIG_FILE}"
