@@ -11,6 +11,8 @@ jobs:
         with:
           image: vvakame/review:3.2
           commands: 'uplatex,extractbb'
+      - run: ls -la docker-bin
+      - run: cat docker-bin/*
       - uses: actions/setup-ruby@v1
         with:
           ruby_version: 2.7

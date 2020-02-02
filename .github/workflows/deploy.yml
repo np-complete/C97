@@ -6,5 +6,3 @@ on:
 jobs:
   build:
     steps:
-      - uses: actions/review@master
-      - run:
