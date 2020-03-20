@@ -26,7 +26,7 @@ jobs:
       - run: aws s3 cp book.pdf s3://np-complete-books/pdf/C97.pdf --acl public-read
       - name: create release
         id: create_release
-        uses: action/create-release@v1
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
