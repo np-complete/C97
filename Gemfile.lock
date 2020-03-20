@@ -4,22 +4,28 @@ GEM
     image_size (2.1.2)
     md2review (1.12.1)
       redcarpet (> 2.0.0)
+    pastel (0.8.0)
+      tty-color (~> 0.5)
     rake (13.0.6)
     redcarpet (3.5.1)
-    review (3.2.0)
+    review (5.2.0)
       image_size
       rouge
       rubyzip
+      tty-logger
     rouge (3.26.0)
     rubyzip (2.3.2)
+    tty-color (0.6.0)
+    tty-logger (0.6.0)
+      pastel (~> 0.8)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   md2review
   rake
-  review (= 3.2.0)
+  review (= 5.2.0)
 
 BUNDLED WITH
    2.2.22

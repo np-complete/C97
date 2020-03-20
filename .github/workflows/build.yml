@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: masarakki/docker-alias@v2
         with:
-          image: vvakame/review:3.2
+          image: vvakame/review:5.2
           commands: review-pdfmaker
       - uses: ruby/setup-ruby@v1
         with:

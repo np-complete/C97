@@ -4,28 +4,16 @@
 %%
 %% The original source files were:
 %%
-%% jsclasses.dtx  (with options: `book')
+%% jsclasses.dtx  (with options: `class,book')
 %% 
-%% IMPORTANT NOTICE:
+%% Maintained on GitHub: https://github.com/texjporg/jsclasses
 %% 
-%% For the copyright see the source file.
-%% 
-%% Any modified versions of this file must be renamed
-%% with new filenames distinct from jsbook.cls.
-%% 
-%% For distribution of the original source see the terms
-%% for copying and modification in the file jsclasses.dtx.
-%% 
-%% This generated file may be distributed as long as the
-%% original source files, as listed above, are part of the
-%% same distribution. (The sources need not necessarily be
-%% in the same archive or directory.)
 \ifx\epTeXinputencoding\undefined\else
   \epTeXinputencoding utf8 % ^^A added (2017-10-04)
 \fi
 \NeedsTeXFormat{pLaTeX2e}
 \ProvidesClass{jsbook}
-  [2018/06/23 jsclasses (okumura, texjporg)]
+  [2020/10/09 jsclasses (okumura, texjporg)]
 \def\jsc@clsname{jsbook}
 \newif\ifjsc@needsp@tch
 \jsc@needsp@tchfalse
@@ -264,10 +252,11 @@
 \fi
 \ifpapersize
   \iftombow
-    \AtBeginDvi{\special{papersize=\the\stockwidth,\the\stockheight}}
+    \edef\jsc@papersize@special{papersize=\the\stockwidth,\the\stockheight}
   \else
-    \AtBeginDvi{\special{papersize=\the\paperwidth,\the\paperheight}}
+    \edef\jsc@papersize@special{papersize=\the\paperwidth,\the\paperheight}
   \fi
+  \AtBeginDvi{\special{\jsc@papersize@special}}
 \fi
 \if@slide\def\n@baseline{13}\else\def\n@baseline{16}\fi
 \newdimen\jsc@mpt
@@ -468,6 +457,11 @@
 \DeclareFontShape{\jsc@JTn}{gt}{m}{sl}{<->ssub*gt/m/n}{}
 \DeclareFontShape{\jsc@JTn}{mc}{bx}{it}{<->ssub*gt/m/n}{}
 \DeclareFontShape{\jsc@JTn}{mc}{bx}{sl}{<->ssub*gt/m/n}{}
+%% ad-hoc "relation font"
+\@ifl@t@r\fmtversion{2020/10/01}
+    {\jsc@needsp@tchfalse}{\jsc@needsp@tchtrue}
+\ifjsc@needsp@tch          % --- for 2020-02-02 or older BEGIN
+\ifx\@rmfamilyhook\@undefined  % old
 \DeclareRobustCommand\rmfamily
         {\not@math@alphabet\rmfamily\mathrm
          \romanfamily\rmdefault\kanjifamily\mcdefault\selectfont}
@@ -477,6 +471,33 @@
 \DeclareRobustCommand\ttfamily
         {\not@math@alphabet\ttfamily\mathtt
          \romanfamily\ttdefault\kanjifamily\gtdefault\selectfont}
+\AtBeginDocument{%
+  \ifx\mweights@init\@undefined\else  % mweights.sty is loaded
+    % my definitions above should have been overwritten, recover it!
+    % \selectfont is executed twice but I don't care about speed...
+    \expandafter\g@addto@macro\csname rmfamily \endcsname
+      {\kanjifamily\mcdefault\selectfont}%
+    \expandafter\g@addto@macro\csname sffamily \endcsname
+      {\kanjifamily\gtdefault\selectfont}%
+    \expandafter\g@addto@macro\csname ttfamily \endcsname
+      {\kanjifamily\gtdefault\selectfont}%
+  \fi}
+\else                          % 2020-02-02
+\g@addto@macro\@rmfamilyhook
+  {\prepare@family@series@update@kanji{mc}\mcdefault}
+\g@addto@macro\@sffamilyhook
+  {\prepare@family@series@update@kanji{gt}\gtdefault}
+\g@addto@macro\@ttfamilyhook
+  {\prepare@family@series@update@kanji{gt}\gtdefault}
+\fi
+\else % --- for 2020-02-02 or older END & for 2020-10-01 BEGIN
+\AddToHook{rmfamily}%
+  {\prepare@family@series@update@kanji{mc}\mcdefault}
+\AddToHook{sffamily}%
+  {\prepare@family@series@update@kanji{gt}\gtdefault}
+\AddToHook{ttfamily}%
+  {\prepare@family@series@update@kanji{gt}\gtdefault}
+\fi   % --- for 2020-10-01 END
 \ifx\DeclareFixJFMCJKTextFontCommand\@undefined
 \DeclareRobustCommand\textmc[1]{%
     \relax\ifmmode \expandafter\nfss@text \fi{\mcfamily #1}}
@@ -685,6 +706,7 @@
 \xspcode`^^fe=3
 \xspcode`^^ff=3
 \def\@{\spacefactor3000{}}
+%% \@setfontsize with \parindent and \(x)kanjiskip settings
 \def\@setfontsize#1#2#3{%
   \ifx\protect\@typeset@protect
     \let\@currsize#1%
@@ -702,7 +724,8 @@
     \if@slide \xkanjiskip=0.1em \else
       \xkanjiskip=0.25em plus 0.15em minus 0.06em
     \fi
-  \fi}
+  \fi
+}
 \def\jsc@setfontsize#1#2#3{%
   \@setfontsize#1{#2\jsc@mpt}{#3\jsc@mpt}}
 \emergencystretch 3zw
@@ -733,6 +756,7 @@
   \belowdisplayskip 9\jsc@mpt \@plus3\jsc@mpt \@minus4\jsc@mpt
   \belowdisplayshortskip \belowdisplayskip
   \let\@listi\@listI}
+%% initialize
 \normalsize
 \setbox0\hbox{\char\jis"3441}%
 \setlength\Cht{\ht0}
@@ -1480,11 +1504,11 @@
 \renewcommand{\theenumiii}{\@roman\c@enumiii}
 \renewcommand{\theenumiv}{\@Alph\c@enumiv}
 \newcommand{\labelenumi}{\theenumi.}
-\newcommand{\labelenumii}{\inhibitglue（\theenumii）\inhibitglue}
+\newcommand{\labelenumii}{\inhibitglue （\theenumii ）\inhibitglue}
 \newcommand{\labelenumiii}{\theenumiii.}
 \newcommand{\labelenumiv}{\theenumiv.}
 \renewcommand{\p@enumii}{\theenumi}
-\renewcommand{\p@enumiii}{\theenumi\inhibitglue（\theenumii）}
+\renewcommand{\p@enumiii}{\theenumi\inhibitglue （\theenumii ）}
 \renewcommand{\p@enumiv}{\p@enumiii\theenumiii}
 \newcommand\labelitemi{\textbullet}
 \newcommand\labelitemii{\normalfont\bfseries \textendash}
@@ -1591,7 +1615,7 @@
   \vskip\abovecaptionskip
   \sbox\@tempboxa{#1\hskip1zw\relax #2}%
   \ifdim \wd\@tempboxa <\hsize \centering \fi
-  #1\hskip1zw\relax #2\par
+  #1{\hskip1zw\relax}#2\par
   \vskip\belowcaptionskip}}
 \DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\mathmc}
 \DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\mathgt}
@@ -1979,23 +2003,42 @@
 \def\西暦{\西暦true}
 \def\和暦{\西暦false}
 \newcount\heisei \heisei\year \advance\heisei-1988\relax
+\def\pltx@today@year@#1{%
+  \ifnum\numexpr\year-#1=1 元\else
+    \ifnum1=\iftdir\ifmdir0\else1\fi\else0\fi
+      \kansuji\numexpr\year-#1\relax
+    \else
+      \number\numexpr\year-#1\relax\nobreak
+    \fi
+  \fi 年
+}
+\def\pltx@today@year{%
+  \ifnum\numexpr\year*10000+\month*100+\day<19890108
+    昭和\pltx@today@year@{1925}%
+  \else\ifnum\numexpr\year*10000+\month*100+\day<20190501
+    平成\pltx@today@year@{1988}%
+  \else
+    令和\pltx@today@year@{2018}%
+  \fi\fi}
 \def\today{%
   \if@english
     \ifcase\month\or
       January\or February\or March\or April\or May\or June\or
       July\or August\or September\or October\or November\or December\fi
       \space\number\day, \number\year
+  \else\if西暦
+    \ifnum1=\iftdir\ifmdir0\else1\fi\else0\fi \kansuji\year
+    \else\number\year\nobreak\fi 年
   \else
-    \if西暦
-      \number\year 年
-      \number\month 月
-      \number\day 日
-    \else
-      平成\number\heisei 年
-      \number\month 月
-      \number\day 日
-    \fi
-  \fi}
+    \pltx@today@year
+  \fi
+  \ifnum1=\iftdir\ifmdir0\else1\fi\else0\fi
+    \kansuji\month 月
+    \kansuji\day 日
+  \else
+    \number\month\nobreak 月
+    \number\day\nobreak 日
+  \fi\fi}
 \hyphenation{ado-be post-script ghost-script phe-nom-e-no-log-i-cal man-u-script}
 \if@report \pagestyle{plain} \else \pagestyle{headings} \fi
 \pagenumbering{arabic}

@@ -1,5 +1,5 @@
 %#!ptex2pdf -l -u -ot '-synctex=1' test-rejsbk
-% Copyright (c) 2018-2019 Munehiro Yamamoto, Kenshi Muto.
+% Copyright (c) 2018-2021 Munehiro Yamamoto, Kenshi Muto.
 %
 % Permission is hereby granted, free of charge, to any person obtaining a copy
 % of this software and associated documentation files (the "Software"), to deal
@@ -19,9 +19,10 @@
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 % THE SOFTWARE.
 
+\IfFileExists{plautopatch.sty}{\RequirePackage{plautopatch}}{}
 \NeedsTeXFormat{pLaTeX2e}
 \ProvidesClass{review-jsbook}
-  [2018/09/30 v3.0  Re:VIEW pLaTeX class modified for jsbook.cls]
+  [2021/01/12 v5.1 Re:VIEW pLaTeX class modified for jsbook.cls]
 
 \def\recls@error{\ClassError{review-jsbook}}
 \def\recls@warning{\ClassWarning{review-jsbook}}
@@ -226,8 +227,10 @@
 
 %% 表紙・開始番号・通しノンブル
 \newif\if@reclscover \@reclscovertrue
+\newif\ifrecls@coverfitpage \recls@coverfitpagefalse
 \newif\ifrecls@serialpage \recls@serialpagefalse
 \DeclareOptionX{cover}[\@empty]{\gdef\recls@forcecover{#1}}
+\DeclareOptionX{cover_fit_page}[false]{\csname recls@coverfitpage#1\endcsname}
 \DeclareOptionX{startpage}[1]{\gdef\recls@startpage{\numexpr#1}}
 \DeclareOptionX{serial_pagination}[false]{\csname recls@serialpage#1\endcsname}
 
@@ -386,7 +389,7 @@
   hidelinks,
   setpagesize=false,
 ]{hyperref}
-\RequirePackage[dvipdfmx]{pxjahyper}
+\RequirePackage{pxjahyper}
 
 %% more useful macros
 %% ----------
@@ -485,6 +488,17 @@
     \if@twoside\else
       %% \setcounter{page}\@ne
     \fi}
+
+%% 表紙のノンブル
+\def\coverpagezero#1{\expandafter\@coverpagezero\csname c@#1\endcsname}
+\def\@coverpagezero#1{cover}
+
+%% 脚注がページをまたいで泣き別れさせない
+\interfootnotelinepenalty\@M
+
+%% 代替定義
+\def\reviewleftcurlybrace{\{}
+\def\reviewrightcurlybrace{\}}
 
 \listfiles
 \endinput
