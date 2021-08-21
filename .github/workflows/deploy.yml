@@ -19,26 +19,7 @@ jobs:
       - run: review-pdfmaker config.yml
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-1
+          aws-access-key-id: ${{ secrets.BOOK_DEPLOY_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.BOOK_DEPLOY_SECRET_KEY }}
+          aws-region: us-west-2
       - run: aws s3 cp book.pdf s3://np-complete-books/pdf/C97.pdf --acl public-read
-      - name: create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: latest
-          release_name: release
-          draft: false
-          prerelease: false
-      - name: upload file
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: book.pdf
-          asset_name: C97.pdf
-          asset_content_type: application/pdf
