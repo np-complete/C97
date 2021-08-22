@@ -6,21 +6,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: masarakki/docker-alias@v2
         with:
           image: vvakame/review:3.2
-          commands: 'review-pdfmaker'
-      - uses: actions/setup-ruby@v1
+          commands: "review-pdfmaker"
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby_version: 2.7
-      - uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-      - run: bundle install -j4 --path vendor/bundle
+          bundler-cache: true
       - run: bundle exec rake review_files
       - run: review-pdfmaker config.yml
       - uses: actions/upload-artifact@v1
