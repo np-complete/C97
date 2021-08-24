@@ -1,7 +1,7 @@
 name: depoly
 on:
   push:
-    only:
+    branches:
       - master
 jobs:
   build:
