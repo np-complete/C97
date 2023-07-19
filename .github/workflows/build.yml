@@ -16,7 +16,7 @@ jobs:
           bundler-cache: true
       - run: rm `bundle exec which review-pdfmaker`
       - run: bundle exec rake pdf
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
         with:
           name: book
           path: book.pdf
