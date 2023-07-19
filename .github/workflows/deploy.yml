@@ -17,7 +17,7 @@ jobs:
           bundler-cache: true
       - run: rm `bundle exec which review-pdfmaker`
       - run: bundle exec rake pdf
-      - uses: aws-actions/configure-aws-credentials@v1
+      - uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.BOOK_DEPLOY_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.BOOK_DEPLOY_SECRET_KEY }}
