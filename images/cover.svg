@@ -2,23 +2,23 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="148mm"
    height="210mm"
    viewBox="0 0 148 210"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="cover.svg"
    inkscape:export-filename="/home/masaki/Dropbox/DojinWorks/C97/images/cover.svg.png"
    inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96">
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -29,16 +29,19 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="174.16653"
-     inkscape:cy="488.98161"
+     inkscape:cx="174.25131"
+     inkscape:cy="489.92399"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g65"
      showgrid="false"
      inkscape:window-width="1743"
      inkscape:window-height="1696"
      inkscape:window-x="677"
      inkscape:window-y="311"
-     inkscape:window-maximized="0" />
+     inkscape:window-maximized="0"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -47,7 +50,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -79,12 +82,13 @@
                  width="738.42151"
                  id="rect3717" /></flowRegion><flowPara
                id="flowPara3781">キマる</flowPara><flowPara
-               id="flowPara3783" /></flowRoot>          <flowRoot
-             style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:240px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:9.64999676px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+               id="flowPara3783" /></flowRoot>
+          <flowRoot
+             style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:240px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:9.65px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
              id="flowRoot3713-8"
              xml:space="preserve"
-             transform="matrix(0.19446093,0,0,0.19446093,5.0940391,54.664349)"><flowRegion
-               style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:240px;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:9.64999676px;writing-mode:lr-tb;text-anchor:start"
+             transform="matrix(0.19446093,0,0,0.19446093,-0.07728198,116.80438)"><flowRegion
+               style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:240px;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:9.65px;writing-mode:lr-tb;text-anchor:start"
                id="flowRegion3715-1"><rect
                  style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:240px;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:9.64999676px;writing-mode:lr-tb;text-anchor:start"
                  y="52.768139"
@@ -93,7 +97,8 @@
                  width="738.42151"
                  id="rect3717-3" /></flowRegion><flowPara
                id="flowPara3777" /><flowPara
-               id="flowPara3779">Ruby</flowPara></flowRoot>        </g>
+               id="flowPara3779">Ruby</flowPara></flowRoot>
+        </g>
       </g>
     </g>
     <flowRoot
@@ -110,7 +115,8 @@
            y="1015.8077"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;font-family:'EB Garamond';-inkscape-font-specification:'EB Garamond, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;writing-mode:lr-tb;text-anchor:middle" /></flowRegion><flowPara
          id="flowPara3791"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;font-family:UnYetgul;-inkscape-font-specification:'UnYetgul, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">NP-complete</flowPara></flowRoot>    <flowRoot
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;font-family:UnYetgul;-inkscape-font-specification:'UnYetgul, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">NP-complete</flowPara></flowRoot>
+    <flowRoot
        xml:space="preserve"
        id="flowRoot3812"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'URW Bookman L';-inkscape-font-specification:'URW Bookman L, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
@@ -126,7 +132,8 @@
          id="flowPara3828">なぜRubyをキメると</flowPara><flowPara
          id="flowPara3830">気持ちいいのか</flowPara><flowPara
          id="flowPara3832">いろいろな言語と</flowPara><flowPara
-         id="flowPara3834">比較してみた</flowPara></flowRoot>    <text
+         id="flowPara3834">比較してみた</flowPara></flowRoot>
+    <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="142.45467"
@@ -140,7 +147,7 @@
          sodipodi:role="line"
          x="142.45467"
          y="202.52888"
-         style="stroke-width:0.26458332"
-         id="tspan3826" /></text>
+         id="tspan3826"
+         style="stroke-width:0.26458332" /></text>
   </g>
 </svg>
